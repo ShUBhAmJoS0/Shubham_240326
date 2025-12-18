@@ -1,0 +1,68 @@
+{
+  "project_info": {
+    "project_number": "177197112036",
+    "firebase_url": "https://shubham-77757-default-rtdb.firebaseio.com",
+    "project_id": "shubham-77757",
+    "storage_bucket": "shubham-77757.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:177197112036:android:e6dbe449b50cb2ae2eaaf1",
+        "android_client_info": {
+          "package_name": "com.example.c37a"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCmDpBftYgk3P0k3D-SkA4g4gJvwZrG5lE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:177197112036:android:765c22757ec48f5d2eaaf1",
+        "android_client_info": {
+          "package_name": "com.example.kot_start"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCmDpBftYgk3P0k3D-SkA4g4gJvwZrG5lE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:177197112036:android:e73071e37d5325312eaaf1",
+        "android_client_info": {
+          "package_name": "com.example.shubham_240326"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCmDpBftYgk3P0k3D-SkA4g4gJvwZrG5lE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
