@@ -26,6 +26,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.input.VisualTransformation
@@ -77,52 +78,58 @@ fun LoginScreen(
             Spacer(modifier = Modifier.height(32.dp))
 
             OutlinedTextField(
-            value = email,
-            onValueChange = { email = it },
-            label = { Text("Email") },
-            singleLine = true,
-            modifier = Modifier.fillMaxWidth()
-        )
+                value = email,
+                onValueChange = { email = it },
+                label = { Text("Email") },
+                singleLine = true,
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .testTag("email")
+            )
 
             Spacer(modifier = Modifier.height(16.dp))
 
             OutlinedTextField(
-            value = password,
-            onValueChange = { password = it },
-            label = { Text("Password") },
-            singleLine = true,
-            visualTransformation = if (isPasswordVisible) {
-                VisualTransformation.None
-            } else {
-                PasswordVisualTransformation()
-            },
-            trailingIcon = {
-                TextButton(onClick = { isPasswordVisible = !isPasswordVisible }) {
-                    Text(if (isPasswordVisible) "Hide" else "Show")
-                }
-            },
-            modifier = Modifier.fillMaxWidth()
-        )
+                value = password,
+                onValueChange = { password = it },
+                label = { Text("Password") },
+                singleLine = true,
+                visualTransformation = if (isPasswordVisible) {
+                    VisualTransformation.None
+                } else {
+                    PasswordVisualTransformation()
+                },
+                trailingIcon = {
+                    TextButton(onClick = { isPasswordVisible = !isPasswordVisible }) {
+                        Text(if (isPasswordVisible) "Hide" else "Show")
+                    }
+                },
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .testTag("password")
+            )
 
             Spacer(modifier = Modifier.height(24.dp))
 
             Button(
-            onClick = {
-                val trimmedEmail = email.trim()
-                val pwd = password
+                onClick = {
+                    val trimmedEmail = email.trim()
+                    val pwd = password
 
-                userRepo.login(trimmedEmail, pwd) { success, message ->
-                    Toast.makeText(
-                        context,
-                        message,
-                        Toast.LENGTH_LONG
-                    ).show()
-                    if (success) {
-                        onLoginSuccess()
+                    userRepo.login(trimmedEmail, pwd) { success, message ->
+                        Toast.makeText(
+                            context,
+                            message,
+                            Toast.LENGTH_LONG
+                        ).show()
+                        if (success) {
+                            onLoginSuccess()
+                        }
                     }
-                }
-            },
-            modifier = Modifier.fillMaxWidth()
+                },
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .testTag("login")
             ) {
                 Text("Login")
             }
@@ -155,5 +162,3 @@ fun LoginPreview() {
         LoginScreen()
     }
 }
-
-

@@ -26,6 +26,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.input.VisualTransformation
@@ -82,7 +83,9 @@ fun SignUpScreen(
                 onValueChange = { name = it },
                 label = { Text("Full name") },
                 singleLine = true,
-                modifier = Modifier.fillMaxWidth()
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .testTag("name")
             )
 
             Spacer(modifier = Modifier.height(16.dp))
@@ -92,7 +95,9 @@ fun SignUpScreen(
                 onValueChange = { email = it },
                 label = { Text("Email") },
                 singleLine = true,
-                modifier = Modifier.fillMaxWidth()
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .testTag("email")
             )
 
             Spacer(modifier = Modifier.height(16.dp))
@@ -112,7 +117,9 @@ fun SignUpScreen(
                         Text(if (isPasswordVisible) "Hide" else "Show")
                     }
                 },
-                modifier = Modifier.fillMaxWidth()
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .testTag("password")
             )
 
             Spacer(modifier = Modifier.height(24.dp))
@@ -148,7 +155,9 @@ fun SignUpScreen(
                         }
                     }
                 },
-                modifier = Modifier.fillMaxWidth()
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .testTag("signup")
             ) {
                 Text("Sign up")
             }
@@ -171,5 +180,3 @@ fun SignUpPreview() {
         SignUpScreen()
     }
 }
-
-

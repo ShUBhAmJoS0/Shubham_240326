@@ -4,6 +4,7 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
@@ -23,35 +24,32 @@ class MainActivity : ComponentActivity() {
                 var currentScreen by rememberSaveable { mutableStateOf("signup") }
 
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    when (currentScreen) {
-                        "login" -> {
-                            LoginScreen(
-                                modifier = Modifier.padding(innerPadding),
-                                onLoginSuccess = { currentScreen = "dashboard" },
-                                onCreateAccountClick = { currentScreen = "signup" },
-                                onForgotPasswordClick = { currentScreen = "forgot" }
-                            )
-                        }
+                    Box(modifier = Modifier.padding(innerPadding)) {
+                        when (currentScreen) {
+                            "login" -> {
+                                LoginScreen(
+                                    onLoginSuccess = { currentScreen = "dashboard" },
+                                    onCreateAccountClick = { currentScreen = "signup" },
+                                    onForgotPasswordClick = { currentScreen = "forgot" }
+                                )
+                            }
 
-                        "signup" -> {
-                            SignUpScreen(
-                                modifier = Modifier.padding(innerPadding),
-                                onSignUpSuccess = { currentScreen = "login" },
-                                onAlreadyHaveAccountClick = { currentScreen = "login" }
-                            )
-                        }
+                            "signup" -> {
+                                SignUpScreen(
+                                    onSignUpSuccess = { currentScreen = "login" },
+                                    onAlreadyHaveAccountClick = { currentScreen = "login" }
+                                )
+                            }
 
-                        "forgot" -> {
-                            ForgotPasswordScreen(
-                                modifier = Modifier.padding(innerPadding),
-                                onBackToLogin = { currentScreen = "login" }
-                            )
-                        }
+                            "forgot" -> {
+                                ForgotPasswordScreen(
+                                    onBackToLogin = { currentScreen = "login" }
+                                )
+                            }
 
-                        "dashboard" -> {
-                            DashboardScreen(
-                                modifier = Modifier.padding(innerPadding)
-                            )
+                            "dashboard" -> {
+                                DashboardScreen()
+                            }
                         }
                     }
                 }
